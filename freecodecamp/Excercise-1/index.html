@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <p v-once>Initial email: {{email}}</p>
+        <p>Final email : {{email}}</p>
+        <div v-if="count == 1">
+            Green
+        </div>
+
+        <span v-else-if="count == 2">
+            Red
+        </span>
+        <div v-else>
+            Black
+        </div>
+
+
+
+        <input v-model="email" v-bind:class="[email.length < 2 ? 'red' : 'green']">
+        <br>
+        <button :disabled="email === ''" onclick="alert('signed-up')">
+            Submit
+        </button>
+
+        <ul>
+            <li v-for="cat in cats">{{cat.name | captalize}}</li>
+        </ul>
+        <br>
+        {{kittifyName}}
+        <br>
+        <input v-model="newCat" v-on:keyup.enter="addKitty">
+        <button @click="addKitty">
+            + ADD
+        </button>
+        
+        <cat-list :cats="cats" />
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>

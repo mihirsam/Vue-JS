@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="app">
+            <span v-if="seen">
+                {{final}}
+            </span>
+
+            <ol>
+                <li v-for="todo in todos">
+                    {{ todo.text }}
+                </li>
+            </ol>
+
+            <button v-on:click="reverseMessage">Reverse Message!</button>
+            <br>    
+            <input v-model="message">
+            <button v-on:click="setFinal">Set Final</button>
+
+            <ol>
+                <todo-item
+                    v-for="item in todos"
+                    v-bind:todo="item"
+                    v-bind:key="item.id"
+                ></todo-item>
+            </ol>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>>
