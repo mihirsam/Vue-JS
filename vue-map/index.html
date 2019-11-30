@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Vue Js Demo</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" > 
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <div class="lead-form">
+              <h1 class="text-center">Google Map Search Places</h1>
+              <hr/>
+              <div class="row">
+                <div class="col-md-12">
+                  <input type="text" class="form-control input-lg" placeholder="Enter Place Name" v-model="place">
+                </div>
+                <!-- <div class="col-md-6"><h3> Latitude : {{ latitude }}</h3></div>
+                <div class="col-md-6"><h3> Longitude : {{ longitude }}</h3></div> -->
+                <div class="col-md-12"  v-bind:class="{ 'not-visible' : active }" >
+                    <iframe frameborder="0" style="width: 100%; height: 350px; border:0" v-bind:src="'https://www.google.com/maps/embed/v1/place?key=AIzaSyBjOdwYLKKvYLgwZqMQOB9KqfZqZl_PV8Y&q='+ place" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div><!-- end of .lead-form -->
+          </div> <!-- end of .col-md-6.col-md-offset-3 -->
+        </div> <!-- end of .row -->
+      </div> <!-- end of .container -->
+    </div> <!-- end of #app -->
+  </body>
+  <script src="https://unpkg.com/vue@2.0.3/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+</html>
